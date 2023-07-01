@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho Front End</title>
+    <style type="text/css" media="all">
+      html{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+      }
+
+
+      header{
+        background: url(https://cdn.discordapp.com/attachments/576918479068856350/1102410352190308473/manoqqeissovei.png);
+        width: 100%;
+        height:120px;
+        z-index: 4;
+        position: absolute;
+
+      }
+      .mobileHead{
+        background-color: rgb(0,0,0);
+        width: 100%;
+        height:120px;
+        z-index: 4;
+       
+      }
+
+      @media only screen and (max-width:1050px){
+        #apagar {
+            display:none;
+        }
+     }
+     
+      #supergiant{
+        left: 22%;
+        bottom: 20px;
+        position:relative;
+      }
+      
+      .zagreus {
+       margin: auto;
+        width: 100%;
+        height: 500px;
+        background: url(https://cdn.discordapp.com/attachments/576918479068856350/1102410332749709372/FundoHades.png) 0% 0% / cover;
+        
+       
+        position: relative;
+      }
+
+      .imgZag{
+        vertical-align: middle; 
+        z-index: 5;
+        max-width: 100%;
+        border: 0;
+        
+        
+
+      }
+
+    
+
+      .textoFooterZag{
+        background-color: #222;
+        text-align: center;
+        padding: 0.6em;
+
+
+      }
+      #textin{
+        font-family: proxima-nova;
+        font-weight: 700;
+        text-align: center;
+        color: red
+ 
+      }
+      @media only screen and (max-width: 988px){
+        #redimensionar {
+            width: 100%;
+            height: 325;
+        }
+        .game1{
+          display:none;
+        }
+    }
+    
+      
+
+      .cabeca1 {
+        background-color: rgb(255, 255, 255);
+        width: 880px;
+        height: 35px;
+        left: 32%;
+        position: relative;
+        display: flex;
+      }
+      .barratexto{
+ 
+        width: 880px;
+        height: 35px;
+        left: 32%;
+        position: relative;
+
+      }
+      
+      .container{
+        width: 975px;
+        height: 335px;
+        left: 22%;
+        top:50px;
+        position:relative;
+  
+        
+      }
+      .aboutthegame{
+        background-color: rgb(230,227,224);
+
+       display: flex;
+      }
+      .textoAboutTheGame {
+            margin-left: 35px;
+            margin-top: 5px;
+            width: 235px;
+            
+            
+
+        }   
+        .textoAboutTheGame h2 {
+           font-size: 30px; 
+
+        } 
+        .textoAboutTheGame p {
+           font-size: 18px; 
+
+        }   
+        .textoAboutTheGame a {
+           font-size: 18px; 
+           color: red;
+
+        }   
+
+        .ratings{
+            width:420px;
+            height:300px;
+            position: relative;
+       
+            left:25px;
+            margin-top:25px;
+            font-family: proxima-nova;
+        }
+        #textoCentro{
+            text-align: center;
+            width: 100%;
+            
+        }
+        #reviews{
+          font-family: quatro-slab,serif;
+            text-align: center;
+            font-style: italic;
+            
+        }
+        #review2{
+          font-family: quatro-slab,serif;
+            text-align: center;
+            font-style: italic;
+            
+        }
+        #review3{
+          font-family: quatro-slab,serif;
+            text-align: center;
+            font-style: italic;
+            
+        }
+        
+      .game1{
+        float:right;
+        margin-top : 25px;
+        margin-right : 25px;
+        position:relative;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+ 
+      @media only screen and (min-width: 1050px){
+        .mobileHead {
+            display:none;
+        }
+        .mobileZagreus {
+          display: none;
+        }
+        .gameMobile{
+          display: none;
+        }
+        
+        
+        
+    } 
+  
+     
+      @media only screen and (max-width: 1050px){
+        .container {
+          margin-top: 30%;
+            width: 100%;
+            height: 500px;
+            left: 0;
+            
+        }
+        .aboutthegame{
+          display: block;
+        }
+        .ratings {
+          margin-top: 30%;
+            width: 100%;
+            height: 500px;
+            left: 0;
+            
+        }
+
+      }
+
+      .comentarios{
+
+           display: block;
+           box-sizing: border-box;
+            background: url(https://www.supergiantgames.com/dark_geometric.png);
+            margin-top: 200px;
+           min-height:1000px;
+           padding-top: 50px;
+           padding-left: 100px;
+           padding-right: 50px;
+           font-family: proxima-nova;
+        }
+
+        .comentar{
+            margin-top: 50px;
+            width: 40%;
+            height:300px;
+            margin-right: 50px;
+            background-color: #8c120a;
+            float:right;
+            padding-left:10px;
+            padding-top:10px;
+            
+
+        }
+        
+
+        #tituloInput{
+ 
+       
+            height: 20px;
+            width: 50%;
+        }
+        #conteudoInput{
+            margin-top:20px;
+           
+            height: 60%;
+            width: 90%;
+            resize: none;
+        }
+        #btnAttach{
+            width: 17.5%;
+            margin-top: 25px;
+            
+        
+        }
+        #btnEnviar{
+            width: 15%;
+            margin-top: 25px;
+            margin-right: 10px;
+            float: right;
+            
+        
+        }
+
+
+    .aaa{
+        color: #b3b3b3;
+        text-align: center;
+        top:24px;
+    }
+    #pesquisaInput{
+        margin-top: 50px;
+     
+        height: 20px;
+        width: 49%;
+    }
+
+    #listaComentarios{
+        display:flex;
+        width:50%;
+        background-color:#8c120a;
+        min-height: 200px;
+        margin-top: 0px;
+
+    }
+
+
+
+ 
+ 
+      
+      body{
+        margin:0;
+        background-color: rgba(233, 233, 233, 0.904);
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+
+    <header id = "apagar">
+        <div class = "cabeca1">
+            <img src = "https://cdn.discordapp.com/attachments/576918479068856350/1102434018206695544/image.png" alt = "estrela">
+            
+            <p style = "text-transform: uppercase;margin-top: 0px;font-weight: 500;color : #50478D; padding: 7px;">  Hades II</p>
+           
+            <p style = "text-transform: uppercase;margin-top: 0px;font-weight: 500;color :  #8c120a; padding: 7px;">  Hades</p>
+
+            <p style = "text-transform: uppercase;margin-top: 0px;font-weight: 500;color :  #276abc; padding: 7px;">  PYRE</p>
+
+            <p style = "text-transform: uppercase;margin-top: 0px;font-weight: 500;color :  #3a7664; padding: 7px;">  TRANSISTOR</p>
+
+            <p style = "text-transform: uppercase;margin-top: 0px;font-weight: 500;color :  #cfa117; padding: 7px;">  BASTION</p>
+
+            <p style = "text-transform: uppercase;margin-top: 2px;font-weight: 300; padding: 5px;"> Blog</p>
+
+            <p style = "text-transform: uppercase;margin-top: 2px;font-weight: 300; padding: 5px;"> Join</p>
+
+            <p style = "text-transform: uppercase;margin-top: 2px;font-weight: 300; padding: 5px;"> Team</p>
+
+            <p style = "text-transform: uppercase;margin-top: 2px;font-weight: 300; padding: 5px;"> Contact</p>
+
+            <p style = "text-transform: uppercase;margin-top: 2px;font-weight: 300; padding: 5px;"> Merch</p>
+
+            <img src = "https://cdn.discordapp.com/attachments/576918479068856350/1102444772360192030/image.png" alt =  "redes sociais">
+ 
+
+        </div>
+        <img id = "supergiant" src = "https://images.ctfassets.net/5owu3y35gz1g/515iBuHUzspUUF0fVrrTsR/919af2bab70c70204c423070ecb2c06a/logo_sg_final2.png?w=250&h=96&q=50&fit=fill" alt = "supergiant">
+        
+    </header>
+    
+    <div class = "mobileHead">
+      <img src = "https://cdn.discordapp.com/attachments/576918479068856350/1102457289081897051/image.png" alt =  "fake menu">
+
+    </div>
+
+    <div class = "mobileZagreus" style ="position:absolute; height: 100%; bottom: 0px; left: 0px;">
+      
+      <img src = "https://cdn.discordapp.com/attachments/479328475216609301/1099764903788679379/image.png" alt = "zagreus mobile" style = "width: 100%; height: 300px%; margin-top: 100px;">   
+   </div>
+
+   
+
+    <div class = "zagreus" id = "apagar">
+      <div style="max-width: 1200px; margin: auto; position: relative;">
+        <div style = "position: absolute; height: 100%; bottom: 0px; left: 0px;" >
+          <img class = "imgZag" src =  "https://cdn.discordapp.com/attachments/576918479068856350/1102410389901299792/Zagreus_1.png" alt = "zagreus Inteiro" style="z-index: 3; height: 500px; width:100%; " overflow-clip-margin: content-box;       overflow: clip;>
+
+        </div>       
+        <div style = "position: absolute; height: 100%; bottom: 0px; left: 0px;" >
+
+          <img src= https://images.ctfassets.net/5owu3y35gz1g/1PmYh8jv7x4Vn3b2WZ5aVG/26936a257ac8afdc25b26b9a7d9f13ca/Hades_Homepage_logo_goty.png?w =1200&h=500&q=80&fit=fill" alt="Logo Game of the year" style="z-index: 3; height: 500px; width: 100%;">
+        </div>
+        
+        
+      </div>
+    </div>
+    
+    
+
+    <div class = "textoFooterZag" id = "apagar">
+            
+      <h3 id = "textin"> From the Supergiant blog: Pre-Order PUP Zagreus & Nendoroid Megaera</h3>
+    </div>
+
+    <div class = "container">
+        <div class = "aboutthegame">
+            <div class ="textoAboutTheGame">
+              <img class = "gameMobile "src ="https://images.ctfassets.net/5owu3y35gz1g/221gU3J0H5urRoHsNbYDpf/910e01518b59323f8624c1a5a2001ff5/Hades_Rating_Cover__1_.png?w=225&h=310&q=100" alt = "Hades the Game">
+                <h2>About the game</h2>
+                <p>Hades is a rogue-like dungeon crawler in which you defy the god of the dead as you hack and slash your way out of the Underworld of Greek myth.</p>
+                <a href = "https://www.supergiantgames.com/blog/hades-faq">Read the full FAQ</a>
+                <br> 
+                <br>
+                <h2>Available on</h2>       
+            </div>      
+            <img class = "game1" src = "https://images.ctfassets.net/5owu3y35gz1g/221gU3J0H5urRoHsNbYDpf/910e01518b59323f8624c1a5a2001ff5/Hades_Rating_Cover__1_.png?w=225&h=310&q=100" alt = "hades o jogo">
+        <div>
+        <div class = "ratings" >
+            <h3 id = "textoCentro">What people are saying</h3>
+            <p id = "reviews">"Hades is a one-of-a-kind rogue-lite that does a brilliant job of marrying its fast-paced action with its persistent, progressing story through a vividly reimagined greek mythological underworld </p>
+            <br>
+            <p id = "review2">"Hades is one of the best roguelites of all times</p>
+            <br>
+            <p id = "review3">"It's hard to imagine anyone other than Supergiant pulling odd this herculean feat with suck style</p>
+        </div>       
+    </div>
+    </div>
+   </div>
+    
+    <div class = "comentarios">
+        <h1 class = "aaa"> Comentários</h1>
+        <input type = "text" id = "pesquisaInput" placeholder = "Pesquise comentários" required>
+        <form class = "comentar">
+            <input type = "text" id = "tituloInput" placeholder = "Título do comentário" required>
+            <textarea id = "conteudoInput" placeholder = "Escreva Aqui"></textarea>
+            <input type = "file" id = "btnAttach" accept = "image/*" required>
+          
+            <button  id = "btnEnviar"> Enviar</button>
+        </form>
+        <div id = "listaComentarios"></div>
+            
+        </div>
+    </div>
+     <script src = "scripts js.js"></script>
+  </body>
+  
+</html>
