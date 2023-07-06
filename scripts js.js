@@ -1,93 +1,28 @@
-
-var listaComentarios = document.getElementById("listaComentarios")
+var listaComentarios = document.getElementById("listaComentarios");
+var listaTab = [];
 
 function enviaComentario(){
     var entraTitulo = document.getElementById("tituloInput");
     var entraConteudo = document.getElementById("conteudoInput");
     var entraImagem = document.getElementById("imagemInput");
 
-            var titulo = entraTitulo.value;
-            var conteudo = entraConteudo.value;
-            var imagem = entraImagem.files[0];
+    var titulo = entraTitulo.value;
+    var conteudo = entraConteudo.value;
+    var imagem = entraImagem.value;
 
-            var entryFile = new FileReader();
-            
-            if (titulo == ''){
-                alert("ERRO, insira o título");
-            } else {
-                if (conteudo == ''){
-                    alert("ERRO, insira conteudo");
-
-                } else {  
-
-
-            entryFile.addEventListener("load", function () {
-            var urlInput = entryFile.result;
-                addComentario(titulo, conteudo, urlInput);
-            }); 
-            if (imagem) {
-                entryFile.readAsDataURL(imagem);
-
-            } else {
-                addComentario(titulo, conteudo, "");
-            }   
-            }
-            }
-        entraTitulo.innerHTML = '';
-        entraConteudo.innerHTML = '';
-        entraImagem.innerHTML = '';
-        carregarLS();
-}
-
-function addComentario(titulo, conteudo, imagem){
-    var comentarioNovo = {titulo: titulo,conteudo: conteudo,imagem: imagem};
-    comentario.push(comentarioNovo);
-    salvarLS();
-    carregarLS();
-      
-}
-function editComment(comentario) {
-    var titulo2 = prompt("Titulo novo:", comentario.titulo);
-    var conteudo2 = prompt("Novo Corpo", comentario.conteudo);
-  
-    if (titulo2 !== null)
-        comentario.titulo = titulo2;
-    if(newText !== null) {       
-        comentario.conteudo = conteudo2;
-        salvarLS();
-        atualizaTabela();
-    }
-  }
-function delComment(comentario) {      
-    var confirmacao = confirm("Deseja apagar o Comentario?");
-    if (confirmacao) {
-        var indice = comentario.indexOf(comentario);
-        comentario.splice(indice, 1);
-        salvarLS();
-        atualizaTabela();
-    }
-}
-
-
-function salvarLS(){  
-    localStorage.setItem('comentario', JSON.stringify(comentario));
-}
-
-function getComentarios() {
-    var comentarioLS = localStorage.getItem('comentario');
-    if (comentarioLS) {
-      return JSON.parse(comentarioLS);
+     
+    if (titulo == ''){
+        alert("ERRO, insira o título");
     } else {
-      return [];
-    }
-}
-var comentario = getComentarios();
-function carregarLS(){
-    
-    listaComentarios.innerHTML = ""; 
+        if (conteudo == ''){
+            alert("ERRO, insira conteudo");
 
-    comentario.forEach(function (comentarios){
-                                             
+        } else {  
+            if (imagem == ""){
+                alert("erro ao inserir link");
+            } else {
+
+
             var conCom = document.createElement('div');
             conCom.className = 'conCom';
             var ct = document.createElement('h3');
@@ -96,93 +31,236 @@ function carregarLS(){
             cc.className = 'cc';       
             var img = document.createElement('img');
             img.className = 'img';
-            ct.innerHTML = comentarios.titulo;
-            cc.innerHTML = comentarios.conteudo;
-            img.src = comentarios.imagem;
+            ct.innerHTML = titulo;
+            cc.innerHTML = conteudo;
+            img.src = imagem;
             listaComentarios.appendChild(conCom);
             conCom.appendChild(ct);
             conCom.appendChild(cc);
             conCom.appendChild(img);
 
-
             var btnAlterar = document.createElement("button");
             btnAlterar.textContent = "Alterar";
-            btnAlterar.className = "btnAlt";
+            btnAlterar.className = 'btnAlterar';
+            conCom.appendChild(btnAlterar);
             btnAlterar.addEventListener("click", function () {
-                editComment(comentarios);
-            });      
-            var btnApagar = document.createElement("button");
-            btnApagar.textContent = "Apagar";
-            btnApagar.className = "btnApagar";
-            btnApagar.addEventListener("click", function () {
-                delComment(comentarios);
+                var titulo2 = prompt("Titulo novo:", ct.innerHTML);
+                var conteudo2 = prompt("Novo Corpo", cc.innerHTML);
+  
+                if (titulo2 !== null)
+                    titulo = titulo2;
+                if(conteudo2 !== null) {                       
+                    conteudo = conteudo2;
+                }
+                salvarStorage(listaTab.titulo, listaTab.conteudo, listaTab.imagem);
+                salvarLista();
+                carregarLS();
+               
             });
-    });
+                  
+            var btnApagar = document.createElement("button");
+            btnApagar.textContent = "X";
+            btnApagar.className = 'btnApagar';
+            conCom.appendChild(btnApagar);
+            btnApagar.addEventListener("click", function () {
+                
+                delComment(titulo, conteudo);
+                salvarLista();
+                carregarLS();
+               
+            });
+            salvarStorage(entraTitulo.value, entraConteudo.value, entraImagem.value);
+        }   
+    }
+}
+    carregarLS();   
+    salvarLista();
+    entraTitulo.value = '';
+    entraConteudo.value = '';
+    entraImagem.value = '';
+   
+}
+
+
+
+
+
+
+
+function delComment(titulo, conteudo) {      
+
+    var indice = -1;
+    for (var i = 0; i < listaTab.length; i++) {
+        if (listaTab[i].titulo === titulo && listaTab[i].conteudo === conteudo) {
+            indice = i;
+            break;
+        }
+    }
+
+    if (indice !== -1) {
+        listaTab.splice(indice, 1);
+        salvarStorage();
+        
+        
+    }
+    salvarLista();
+    carregarLS();
+    
 
 }
 
+function salvarLista() {
+    localStorage.setItem("comentario", listaTab.innerHTML);
+}
+
+
+function settarLista() {
+    listaTab.innerHTML = localStorage.getItem("comentario");
+}
+settarLista();
+
+
+function salvarStorage(titulo, conteudo, imagem){
+    var novoComentario = {titulo: titulo, conteudo: conteudo,imagem: imagem };
+    listaTab.push(novoComentario);
+    localStorage.setItem('listaTab', JSON.stringify(listaTab));
+}
+
+function resetStorage(){
+
+    var lista2 = JSON.parse(localStorage.getItem('listaTab'));
+    listaTab = lista2 || [];
+   
+    
+}
+resetStorage();
+
+function carregarLS(){
+
+    
+    
+    listaComentarios.innerHTML = ""; 
+
+    listaTab.forEach(function (listaTab){
+      
+   
+        var conCom = document.createElement('div');
+        conCom.className = 'conCom';
+        var ct = document.createElement('h3');
+        ct.className = 'ct';                                       
+        var cc = document.createElement('p');
+        cc.className = 'cc';       
+        var img = document.createElement('img');
+        img.className = 'img';
+        ct.innerHTML = listaTab.titulo;
+        cc.innerHTML = listaTab.conteudo;
+        img.src = listaTab.imagem;
+
+
+
+        
+        listaComentarios.appendChild(conCom);
+        conCom.appendChild(ct);
+        conCom.appendChild(cc);
+        conCom.appendChild(img);
+
+        
+
+
+            var btnAlterar = document.createElement("button");
+            btnAlterar.textContent = "Alterar";
+            btnAlterar.className = 'btnAlterar';
+            conCom.appendChild(btnAlterar);
+            btnAlterar.addEventListener("click", function () {
+                var titulo2 = prompt("Titulo novo:", ct.innerHTML);
+                var conteudo2 = prompt("Novo Corpo", cc.innerHTML);
+  
+                if (titulo2 !== null)
+                    listaTab.titulo = titulo2;
+                if(conteudo2 !== null) {    
+                     
+                    listaTab.conteudo = conteudo2;
+                }
+                salvarStorage(listaTab.titulo, listaTab.conteudo, listaTab.imagem);
+                salvarLista();
+                carregarLS();
+            });
+                  
+            var btnApagar = document.createElement("button");
+            btnApagar.textContent = "X";
+            btnApagar.className = 'btnApagar';
+            conCom.appendChild(btnApagar);
+            btnApagar.addEventListener("click", function () {
+                delComment(listaTab.titulo, listaTab.conteudo);
+                salvarLista();
+                carregarLS();
+            });
+        }
+  );
+
+}
 var barra = document.getElementById('pesquisaInput');
 barra.addEventListener('input', function(){
+    listaComentarios.innerHTML = ""; 
     var chave = barra.value;
 
-    var resto = comentario.filter(function (comentarios) {
-    var tituloSearch = comentarios.title.toLowerCase().includes(chave.toLowerCase());
-    var conteudoSearch = comentarios.text.toLowerCase().includes(chave.toLowerCase());
+    var resto = listaTab.filter(function (listaTab) {
+    var tituloSearch = listaTab.titulo.toLowerCase().includes(chave.toLowerCase());
+    var conteudoSearch = listaTab.conteudo.toLowerCase().includes(chave.toLowerCase());
         return tituloSearch||conteudoSearch;
    
     });
 
-    resto.forEach(function (comentarios){
-    var conCom = document.createElement('div');
-            conCom.className = 'conCom';
-            var ct = document.createElement('h3');
-            ct.className = 'ct';                                       
-            var cc = document.createElement('p');
-            cc.className = 'cc';       
-            var img = document.createElement('img');
-            img.className = 'img';
-            ct.innerHTML = comentarios.titulo;
-            cc.innerHTML = comentarios.conteudo;
-            img.src = comentarios.imagem;
-            listaComentarios.appendChild(conCom);
-            conCom.appendChild(ct);
-            conCom.appendChild(cc);
-            conCom.appendChild(img);
+    resto.forEach(function (listaTab){
+        var conCom = document.createElement('div');
+        conCom.className = 'conCom';
+        var ct = document.createElement('h3');
+        ct.className = 'ct';                                       
+        var cc = document.createElement('p');
+        cc.className = 'cc';       
+        var img = document.createElement('img');
+        img.className = 'img';
+        ct.innerHTML = listaTab.titulo;
+        cc.innerHTML = listaTab.conteudo;
+        img.src = listaTab.imagem;
+        listaComentarios.appendChild(conCom);
+        conCom.appendChild(ct);
+        conCom.appendChild(cc);
+        conCom.appendChild(img);
 
 
             var btnAlterar = document.createElement("button");
             btnAlterar.textContent = "Alterar";
-            btnAlterar.className = "btnAlt";
+            btnAlterar.className = 'btnAlterar';
+            conCom.appendChild(btnAlterar);
             btnAlterar.addEventListener("click", function () {
-                editComment(comentarios);
-            });      
-            var btnApagar = document.createElement("button");
-            btnApagar.textContent = "Apagar";
-            btnApagar.className = "btnApagar";
-            btnApagar.addEventListener("click", function () {
-                delComment(comentarios);
+                var titulo2 = prompt("Titulo novo:", ct.innerHTML);
+                var conteudo2 = prompt("Novo Corpo", cc.innerHTML);
+  
+                if (titulo2 !== null)
+                    listaTab.titulo = titulo2;
+                if(conteudo2 !== null) {    
+                     
+                    listaTab.conteudo = conteudo2;
+                }
+                salvarStorage(listaTab.titulo, listaTab.conteudo, listaTab.imagem);
+                salvarLista();
+                carregarLS();
+                
             });
-        });         
-
+                  
+            var btnApagar = document.createElement("button");
+            btnApagar.textContent = "X";
+            btnApagar.className = 'btnApagar';
+            conCom.appendChild(btnApagar);
+            btnApagar.addEventListener("click", function () {
+                delComment(listaTab.titulo, listaTab.conteudo);
+                salvarLista();
+                carregarLS();
+                
+            });        
+    });
 
 });
-
-
-
-
-
-
-  
-    
-
-
-
-
-
-
-
-
-
-
 
 carregarLS();
