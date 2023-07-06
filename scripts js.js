@@ -52,7 +52,7 @@ function enviaComentario(){
                 if(conteudo2 !== null) {                       
                     conteudo = conteudo2;
                 }
-                salvarStorage(listaTab.titulo, listaTab.conteudo, listaTab.imagem);
+                salvarStorage("x", "x", listaTab.imagem);
                 salvarLista();
                 carregarLS();
                
@@ -99,7 +99,7 @@ function delComment(titulo, conteudo) {
 
     if (indice !== -1) {
         listaTab.splice(indice, 1);
-        salvarStorage();
+        salvarStorage("x", "x",listaTab.imagem);
         
         
     }
@@ -140,9 +140,9 @@ function carregarLS(){
     
     
     listaComentarios.innerHTML = ""; 
-
+    
     listaTab.forEach(function (listaTab){
-      
+        
    
         var conCom = document.createElement('div');
         conCom.className = 'conCom';
@@ -157,7 +157,7 @@ function carregarLS(){
         img.src = listaTab.imagem;
 
 
-
+        if (ct.innerHTML !== 'x') { 
         
         listaComentarios.appendChild(conCom);
         conCom.appendChild(ct);
@@ -181,7 +181,7 @@ function carregarLS(){
                      
                     listaTab.conteudo = conteudo2;
                 }
-                salvarStorage(listaTab.titulo, listaTab.conteudo, listaTab.imagem);
+                salvarStorage("x", "x",listaTab.imagem);
                 salvarLista();
                 carregarLS();
             });
@@ -196,7 +196,7 @@ function carregarLS(){
                 carregarLS();
             });
         }
-  );
+    });
 
 }
 var barra = document.getElementById('pesquisaInput');
@@ -243,7 +243,7 @@ barra.addEventListener('input', function(){
                      
                     listaTab.conteudo = conteudo2;
                 }
-                salvarStorage(listaTab.titulo, listaTab.conteudo, listaTab.imagem);
+                salvarStorage("x", "x",listaTab.imagem);
                 salvarLista();
                 carregarLS();
                 
