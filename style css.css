@@ -256,7 +256,7 @@
             resize: none;
         }
         #imagemInput{
-            width: 17.5%;
+            width: 50%;
             margin-top: 25px;
             
         
@@ -298,34 +298,43 @@
         display: flexbox;
         padding-bottom: 10px; 
         background-color: #8c120a;
+        padding-left: 25px;
+        padding-right:10px;
        
 
     }
     #listaComentarios .ct{
       
       margin-top:2px;
-      margin-left: 10px;
+      
    }
     #listaComentarios .cc{
       margin-top:2px;
-      margin-left: 10px;
+      
      
       
 
     }
+    #listaComentarios .img{
+      max-width: 100%;
+      max-height: 250px;
+      
+    }
 
     #listaComentarios .btnAlterar{
-        height = 5px;
-        width = 5px;
-        background-color: green;
+        height: 50px;
+        width: 50px;
+        float: right;
+        background-color: rgba(0, 26, 255, 0.781);
     }
     #listaComentarios .btnApagar{
-        height = 5px;
-        width = 5px;
-        background-color: red;
+        height: 50px;
+        width: 50px;
+        float: right;
+        background-color: maroon;
     }
 
- 
+    
  
       
       body{
