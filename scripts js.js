@@ -1,28 +1,50 @@
-//Aluno: Thiago Vinicius Akiyoshi Tagami
-//RA: a2453401
 
-var tituloInput = document.querySelector("tituloInput");
-var conteudoInput = document.querySelector("conteudoInput");
-var imagemInput = document.querySelector("imageInput");
 var listaComentarios = document.getElementById("listaComentarios")
-var comentar = document.getElementById("comentar");
+
+function enviaComentario(){
+    var entraTitulo = document.getElementById("tituloInput");
+    var entraConteudo = document.getElementById("conteudoInput");
+    var entraImagem = document.getElementById("imagemInput");
+
+            var titulo = entraTitulo.value;
+            var conteudo = entraConteudo.value;
+            var imagem = entraImagem.files[0];
+
+            var entryFile = new FileReader();
+            
+            if (titulo == ''){
+                alert("ERRO, insira o título");
+            } else {
+                if (conteudo == ''){
+                    alert("ERRO, insira conteudo");
+
+                } else {  
 
 
-atualizaTabela();
+            entryFile.addEventListener("load", function () {
+            var urlInput = entryFile.result;
+                addComentario(titulo, conteudo, urlInput);
+            }); 
+            if (imagem) {
+                entryFile.readAsDataURL(imagem);
+
+            } else {
+                addComentario(titulo, conteudo, "");
+            }   
+            }
+            }
+        entraTitulo.innerHTML = '';
+        entraConteudo.innerHTML = '';
+        entraImagem.innerHTML = '';
+        carregarLS();
+}
+
 function addComentario(titulo, conteudo, imagem){
-
-    if (tituloInput.value == ''){
-        alert("ERRO, insira o título");
-    } else {
-        if (conteudoInput.value == ''){
-            alert("ERRO, insira conteudo");
-        } else {
-            var comentarioNovo = {titulo: titulo, conteudo: conteudo, imagem: imagem};
-        }
-    }
-    comentarios.push(comentarioNovo);
-    saveLS();
-    atualizaTabela();
+    var comentarioNovo = {titulo: titulo,conteudo: conteudo,imagem: imagem};
+    comentario.push(comentarioNovo);
+    salvarLS();
+    carregarLS();
+      
 }
 function editComment(comentario) {
     var titulo2 = prompt("Titulo novo:", comentario.titulo);
@@ -32,109 +54,135 @@ function editComment(comentario) {
         comentario.titulo = titulo2;
     if(newText !== null) {       
         comentario.conteudo = conteudo2;
-        saveCommentLS();
+        salvarLS();
         atualizaTabela();
     }
   }
 function delComment(comentario) {      
-    var confirmacao = confirm("Deseja apagar o Comentário?");
+    var confirmacao = confirm("Deseja apagar o Comentario?");
     if (confirmacao) {
-        var index = comentarios.indexOf(comentario);
-        comentarios.splice(index, 1);
-        saveCommentLS();
+        var indice = comentario.indexOf(comentario);
+        comentario.splice(indice, 1);
+        salvarLS();
         atualizaTabela();
-      }
     }
-
-var comentarios = getCommentsLS();
-
-function atualizaTabela() {  
-    listaComentarios.innerHTML = ""; 
-
-    comentarios.forEach(function (comentario){
-        //atributos do objeto
-  
-        var comentarioTitulo = document.createElement("a");      
-        var conteudoComentario = document.createElement("p");
-        var imagemComment = document.createElement("img");
-
-
-        comentarioTitulo.textContent = comentario.titulo;
-        conteudoComentario.textContent = comentario.conteudo;
-        imagemComment.src = comentario.imagem;
-
-        //Objeto que cria os botões de deletar e editar
-        var btnAlterar = document.createElement("button");
-
-
-            btnAlterar.textContent = "Alterar";
-            btnAlterar.className = "bTtnAlt";
-            btnAlterar.addEventListener("click", function () {
-            editComment(comentario);
-        });
-
-        var btnApagar = document.createElement("button");
-
-
-            btnApagar.textContent = "Apagar";
-            btnApagar.className = "btnApagar";
-            btnApagar.addEventListener("click", function () {
-            delComment(comment);            
-    }); 
-    
-    //contrução do objeto resultado
-    listaComentarios.appendChild(imagemComment);
-    listaComentarios.appendChild(comentarioTitulo);
-    listaComentarios.appendChild(conteudoComentario);
-    listaComentarios.appendChild(btnAlterar);
-    listaComentarios.appendChild(btnApagar);
-    
-    });
-
-
-
-}
-
-comentar.addEventListener("submit", function (event) { 
-    var conteudo3 = conteudoInput.value;
-    var titulo3 = tituloInput.value;  
-    var imagem3 = imagemInput.files[0]
-    var entryFile = new FileReader();
-  
-
-    entryFile.addEventListener("load", function () {
-      var urlInput = entryFile.result;
-      addComentario(titulo3, conteudo3, urlInput);
-    }); 
-    if (imagem3) {
-        reader.readAsDataURL(imagem3);
-    } else {
-      addComentario(titulo3, conteudo3, "");
-    }
-  
-    comentar.reset();
-  });
-
-function saveCommentLS() {
-    localStorage.setItem("comentarios", JSON.stringify(comentarios));
 }
 
 
+function salvarLS(){  
+    localStorage.setItem('comentario', JSON.stringify(comentario));
+}
 
-function getCommentsLS() {
-    var comentarioLS = localStorage.getItem("comentarios");
+function getComentarios() {
+    var comentarioLS = localStorage.getItem('comentario');
     if (comentarioLS) {
       return JSON.parse(comentarioLS);
     } else {
       return [];
     }
 }
+var comentario = getComentarios();
+function carregarLS(){
+    
+    listaComentarios.innerHTML = ""; 
 
-function saveLS(){
-    localStorage.setItem("comentario", listaComentarios.innerHTML);
+    comentario.forEach(function (comentarios){
+                                             
+            var conCom = document.createElement('div');
+            conCom.className = 'conCom';
+            var ct = document.createElement('h3');
+            ct.className = 'ct';                                       
+            var cc = document.createElement('p');
+            cc.className = 'cc';       
+            var img = document.createElement('img');
+            img.className = 'img';
+            ct.innerHTML = comentarios.titulo;
+            cc.innerHTML = comentarios.conteudo;
+            img.src = comentarios.imagem;
+            listaComentarios.appendChild(conCom);
+            conCom.appendChild(ct);
+            conCom.appendChild(cc);
+            conCom.appendChild(img);
+
+
+            var btnAlterar = document.createElement("button");
+            btnAlterar.textContent = "Alterar";
+            btnAlterar.className = "btnAlt";
+            btnAlterar.addEventListener("click", function () {
+                editComment(comentarios);
+            });      
+            var btnApagar = document.createElement("button");
+            btnApagar.textContent = "Apagar";
+            btnApagar.className = "btnApagar";
+            btnApagar.addEventListener("click", function () {
+                delComment(comentarios);
+            });
+    });
+
 }
 
-function loadLS(){
-    listaComentarios.innerHTML = localStorage.getItem("comentario");
-}
-loadLS();
+var barra = document.getElementById('pesquisaInput');
+barra.addEventListener('input', function(){
+    var chave = barra.value;
+
+    var resto = comentario.filter(function (comentarios) {
+    var tituloSearch = comentarios.title.toLowerCase().includes(chave.toLowerCase());
+    var conteudoSearch = comentarios.text.toLowerCase().includes(chave.toLowerCase());
+        return tituloSearch||conteudoSearch;
+   
+    });
+
+    resto.forEach(function (comentarios){
+    var conCom = document.createElement('div');
+            conCom.className = 'conCom';
+            var ct = document.createElement('h3');
+            ct.className = 'ct';                                       
+            var cc = document.createElement('p');
+            cc.className = 'cc';       
+            var img = document.createElement('img');
+            img.className = 'img';
+            ct.innerHTML = comentarios.titulo;
+            cc.innerHTML = comentarios.conteudo;
+            img.src = comentarios.imagem;
+            listaComentarios.appendChild(conCom);
+            conCom.appendChild(ct);
+            conCom.appendChild(cc);
+            conCom.appendChild(img);
+
+
+            var btnAlterar = document.createElement("button");
+            btnAlterar.textContent = "Alterar";
+            btnAlterar.className = "btnAlt";
+            btnAlterar.addEventListener("click", function () {
+                editComment(comentarios);
+            });      
+            var btnApagar = document.createElement("button");
+            btnApagar.textContent = "Apagar";
+            btnApagar.className = "btnApagar";
+            btnApagar.addEventListener("click", function () {
+                delComment(comentarios);
+            });
+        });         
+
+
+});
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+carregarLS();
