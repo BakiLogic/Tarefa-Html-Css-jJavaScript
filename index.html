@@ -3,9 +3,9 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style css.css">
+    <link rel="stylesheet" type="text/css" href="C:\Users\Thiago\Desktop\.vscode\style css.css">
     <title>Trabalho Front End</title>
-   
+    <style type="text/css" media="all"></style>
   </head>
   <body>
 
@@ -75,7 +75,7 @@
       <h3 id = "textin"> From the Supergiant blog: Pre-Order PUP Zagreus & Nendoroid Megaera</h3>
     </div>
 
-    <div class = "container">
+    <div class = "container"> 
         <div class = "aboutthegame">
             <div class ="textoAboutTheGame">
               <img class = "gameMobile "src ="https://images.ctfassets.net/5owu3y35gz1g/221gU3J0H5urRoHsNbYDpf/910e01518b59323f8624c1a5a2001ff5/Hades_Rating_Cover__1_.png?w=225&h=310&q=100" alt = "Hades the Game">
@@ -106,21 +106,17 @@
         <div class = "comentar">
             <input type = "text" name="titulo" id = "tituloInput" placeholder = "Título do comentário" >
             <textarea id = "conteudoInput" name="conteudo" placeholder = "Escreva Aqui"></textarea>
-            <input type = "file" id = "imagemInput" name="imagem" accept = "image/*" >
+            <input type = "url" id = "imagemInput" name="imagem" placeholder = "insira o link " >
           
-            <button onclick="enviaComentario()" id = "btnEnviar"> Enviar</button>
-        </div>
-          <div id = "listaComentarios">
-
-              
-
-              </div>
+            <button onclick="enviaComentario(), carregarLS()" id = "btnEnviar"> Enviar</button>
+            </div>
+            <div id = "listaComentarios"></div>
         
-          </div>
-                   
         </div>
+ 
     </div>
-     <script src = "script js.js"></script>
+    </div>
+     <script src = "C:\Users\Thiago\Desktop\.vscode\js script.js"></script>
   </body>
   
 </html>
