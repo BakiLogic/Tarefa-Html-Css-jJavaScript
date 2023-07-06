@@ -1,0 +1,337 @@
+      html{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+      }
+
+
+      header{
+        background: url(https://cdn.discordapp.com/attachments/576918479068856350/1102410352190308473/manoqqeissovei.png);
+        width: 100%;
+        height:120px;
+        z-index: 4;
+        position: absolute;
+
+      }
+      .mobileHead{
+        background-color: rgb(0,0,0);
+        width: 100%;
+        height:120px;
+        z-index: 4;
+       
+      }
+
+      @media only screen and (max-width:1050px){
+        #apagar {
+            display:none;
+        }
+     }
+     
+      #supergiant{
+        left: 22%;
+        bottom: 20px;
+        position:relative;
+      }
+      
+      .zagreus {
+       margin: auto;
+        width: 100%;
+        height: 500px;
+        background: url(https://cdn.discordapp.com/attachments/576918479068856350/1102410332749709372/FundoHades.png) 0% 0% / cover;
+        
+       
+        position: relative;
+      }
+
+      .imgZag{
+        vertical-align: middle; 
+        z-index: 5;
+        max-width: 100%;
+        border: 0;
+        
+        
+
+      }
+
+    
+
+      .textoFooterZag{
+        background-color: #222;
+        text-align: center;
+        padding: 0.6em;
+
+
+      }
+      #textin{
+        font-family: proxima-nova;
+        font-weight: 700;
+        text-align: center;
+        color: #ca0000;
+ 
+      }
+      @media only screen and (max-width: 988px){
+        #redimensionar {
+            width: 100%;
+            height: 325;
+        }
+        .game1{
+          display:none;
+        }
+    }
+    
+      
+
+      .cabeca1 {
+        background-color: rgb(255, 255, 255);
+        width: 880px;
+        height: 35px;
+        left: 32%;
+        position: relative;
+        display: flex;
+      }
+      .barratexto{
+ 
+        width: 880px;
+        height: 35px;
+        left: 32%;
+        position: relative;
+
+      }
+      
+      .container{
+        width: 975px;
+        height: 335px;
+        left: 22%;
+        top:50px;
+        position:relative;
+  
+        
+      }
+      .aboutthegame{
+        background-color: rgb(230,227,224);
+
+       display: flex;
+      }
+      .textoAboutTheGame {
+            margin-left: 35px;
+            margin-top: 5px;
+            width: 235px;
+            
+            
+
+        }   
+        .textoAboutTheGame h2 {
+           font-size: 30px; 
+
+        } 
+        .textoAboutTheGame p {
+           font-size: 18px; 
+
+        }   
+        .textoAboutTheGame a {
+           font-size: 18px; 
+           color: red;
+
+        }   
+
+        .ratings{
+            width:420px;
+            height:300px;
+            position: relative;
+       
+            left:25px;
+            margin-top:25px;
+            font-family: proxima-nova;
+        }
+        #textoCentro{
+            text-align: center;
+            width: 100%;
+            
+        }
+        #reviews{
+          font-family: quatro-slab,serif;
+            text-align: center;
+            font-style: italic;
+            
+        }
+        #review2{
+          font-family: quatro-slab,serif;
+            text-align: center;
+            font-style: italic;
+            
+        }
+        #review3{
+          font-family: quatro-slab,serif;
+            text-align: center;
+            font-style: italic;
+            
+        }
+        
+      .game1{
+        float:right;
+        margin-top : 25px;
+        margin-right : 25px;
+        position:relative;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+ 
+      @media only screen and (min-width: 1050px){
+        .mobileHead {
+            display:none;
+        }
+        .mobileZagreus {
+          display: none;
+        }
+        .gameMobile{
+          display: none;
+        }
+        
+        
+        
+    } 
+  
+     
+      @media only screen and (max-width: 1050px){
+        .container {
+          margin-top: 30%;
+            width: 100%;
+            height: 500px;
+            left: 0;
+            
+        }
+        .aboutthegame{
+          display: block;
+        }
+        .ratings {
+          margin-top: 30%;
+            width: 100%;
+            height: 500px;
+            left: 0;
+            
+        }
+
+      }
+
+      .comentarios{
+
+           display: block;
+           box-sizing: border-box;
+            background: url(https://www.supergiantgames.com/dark_geometric.png);
+            margin-top: 200px;
+           min-height:1000px;
+           padding-top: 50px;
+           padding-left: 100px;
+           padding-right: 50px;
+           font-family: proxima-nova;
+        }
+
+        .comentar{
+            margin-top: 50px;
+            width: 40%;
+            height:300px;
+            margin-right: 50px;
+            background-color: #8c120a;
+            float:right;
+            padding-left:10px;
+            padding-top:10px;
+            
+
+        }
+        
+
+        #tituloInput{
+ 
+       
+            height: 20px;
+            width: 50%;
+        }
+        #conteudoInput{
+            margin-top:20px;
+           
+            height: 60%;
+            width: 90%;
+            resize: none;
+        }
+        #imagemInput{
+            width: 17.5%;
+            margin-top: 25px;
+            
+        
+        }
+        #btnEnviar{
+            width: 15%;
+            margin-top: 25px;
+            margin-right: 10px;
+            float: right;
+            
+        
+        }
+
+    .aaa{
+        color: #ca0000;
+
+    }
+    
+    #pesquisaInput{
+        margin-top: 50px;
+     
+        height: 20px;
+        width: 49%;
+    }
+
+    #listaComentarios{
+ 
+        width:50%;
+        background: url(https://cdn.discordapp.com/attachments/576918479068856350/1102410352190308473/manoqqeissovei.png);
+        min-height: 200px;
+        margin-top: 0px;
+
+    }
+
+    #listaComentarios .conCom{
+        margin-top: 2px;
+        margin-left: 1px;
+        width: 95%;
+        display: flexbox;
+        padding-bottom: 10px; 
+        background-color: #8c120a;
+       
+
+    }
+    #listaComentarios .ct{
+      
+      margin-top:2px;
+      margin-left: 10px;
+   }
+    #listaComentarios .cc{
+      margin-top:2px;
+      margin-left: 10px;
+     
+      
+
+    }
+
+    #listaComentarios .btnAlterar{
+        height = 5px;
+        width = 5px;
+        background-color: green;
+    }
+    #listaComentarios .btnApagar{
+        height = 5px;
+        width = 5px;
+        background-color: red;
+    }
+
+ 
+ 
+      
+      body{
+        margin:0;
+        background-color: rgba(233, 233, 233, 0.904);
+      }
+
+
+
