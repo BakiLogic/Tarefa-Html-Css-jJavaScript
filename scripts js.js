@@ -44,18 +44,46 @@ function enviaComentario(){
             btnAlterar.className = 'btnAlterar';
             conCom.appendChild(btnAlterar);
             btnAlterar.addEventListener("click", function () {
-                var titulo2 = prompt("Titulo novo:", ct.innerHTML);
-                var conteudo2 = prompt("Novo Corpo", cc.innerHTML);
+                var comentarios = document.getElementById('comentarios');
+                var editarCmnt = document.createElement('div');
+                editarCmnt.className = 'editarCmnt';
+                var editarLabel = document.createElement('h3')
+                editarLabel.className = 'editarLabel';
+                editarLabel.innerHTML = 'Editar Comentario';
+                var tituloEdit = document.createElement('input');
+                tituloEdit.className = 'tituloEdit';
+                var conteudoEdit = document.createElement('textarea');
+                conteudoEdit.className = 'conteudoEdit';
+                var confirmBtn = document.createElement('button');
+                confirmBtn.className = 'confirmBtn';
+                confirmBtn.innerHTML = 'confimar';
+                
+                 comentarios.appendChild(editarCmnt);
+                 editarCmnt.appendChild(editarLabel);
+                 editarCmnt.appendChild(tituloEdit);
+                 editarCmnt.appendChild(conteudoEdit);
+                 editarCmnt.appendChild(confirmBtn);
+
+                confirmBtn.addEventListener('click', function() { 
+
+                var titulo2 = tituloEdit.value;
+                var conteudo2 = conteudoEdit.value;
+
   
                 if (titulo2 !== null)
                     titulo = titulo2;
                 if(conteudo2 !== null) {                       
                     conteudo = conteudo2;
                 }
-                salvarStorage("x", "x", listaTab.imagem);
+                salvarStorage('','','');
+                
                 salvarLista();
+                
                 carregarLS();
-               
+
+                editarCmnt.remove();
+
+                });
             });
                   
             var btnApagar = document.createElement("button");
@@ -99,8 +127,8 @@ function delComment(titulo, conteudo) {
 
     if (indice !== -1) {
         listaTab.splice(indice, 1);
-        salvarStorage("x", "x",listaTab.imagem);
-        
+        salvarStorage('','','');
+    
         
     }
     salvarLista();
@@ -157,7 +185,7 @@ function carregarLS(){
         img.src = listaTab.imagem;
 
 
-        if (ct.innerHTML !== 'x') { 
+       if (listaTab.titulo !== ''){
         
         listaComentarios.appendChild(conCom);
         conCom.appendChild(ct);
@@ -172,18 +200,50 @@ function carregarLS(){
             btnAlterar.className = 'btnAlterar';
             conCom.appendChild(btnAlterar);
             btnAlterar.addEventListener("click", function () {
-                var titulo2 = prompt("Titulo novo:", ct.innerHTML);
-                var conteudo2 = prompt("Novo Corpo", cc.innerHTML);
+                var comentarios = document.getElementById('comentarios');
+            
+               var editarCmnt = document.createElement('div');
+               editarCmnt.className = 'editarCmnt';
+               var editarLabel = document.createElement('h3')
+               editarLabel.className = 'editarLabel';
+               editarLabel.innerHTML = 'Editar Comentario';
+               var tituloEdit = document.createElement('input');
+               tituloEdit.className = 'tituloEdit';
+               var conteudoEdit = document.createElement('textarea');
+               conteudoEdit.className = 'conteudoEdit';
+               var confirmBtn = document.createElement('button');
+               confirmBtn.className = 'confirmBtn';
+               confirmBtn.innerHTML = 'confimar';
+               
+                comentarios.appendChild(editarCmnt);
+                editarCmnt.appendChild(editarLabel);
+                editarCmnt.appendChild(tituloEdit);
+                editarCmnt.appendChild(conteudoEdit);
+                editarCmnt.appendChild(confirmBtn);
+
+             
+
+
+                confirmBtn.addEventListener('click', function() { 
+
+                var titulo2 = tituloEdit.value;
+                var conteudo2 = conteudoEdit.value;
+
   
                 if (titulo2 !== null)
                     listaTab.titulo = titulo2;
-                if(conteudo2 !== null) {    
-                     
+                if(conteudo2 !== null) {                       
                     listaTab.conteudo = conteudo2;
                 }
-                salvarStorage("x", "x",listaTab.imagem);
+                salvarStorage('','','');
+                
                 salvarLista();
+                
                 carregarLS();
+
+                editarCmnt.remove();
+
+                });
             });
                   
             var btnApagar = document.createElement("button");
@@ -195,10 +255,11 @@ function carregarLS(){
                 salvarLista();
                 carregarLS();
             });
-        }
+       }
     });
 
 }
+
 var barra = document.getElementById('pesquisaInput');
 barra.addEventListener('input', function(){
     listaComentarios.innerHTML = ""; 
@@ -223,6 +284,8 @@ barra.addEventListener('input', function(){
         ct.innerHTML = listaTab.titulo;
         cc.innerHTML = listaTab.conteudo;
         img.src = listaTab.imagem;
+
+        if (listaTab.titulo !== ''){
         listaComentarios.appendChild(conCom);
         conCom.appendChild(ct);
         conCom.appendChild(cc);
@@ -234,19 +297,46 @@ barra.addEventListener('input', function(){
             btnAlterar.className = 'btnAlterar';
             conCom.appendChild(btnAlterar);
             btnAlterar.addEventListener("click", function () {
-                var titulo2 = prompt("Titulo novo:", ct.innerHTML);
-                var conteudo2 = prompt("Novo Corpo", cc.innerHTML);
+                var comentarios = document.getElementById('comentarios');
+                var editarCmnt = document.createElement('div');
+                editarCmnt.className = 'editarCmnt';
+                var editarLabel = document.createElement('h3')
+                editarLabel.className = 'editarLabel';
+                editarLabel.innerHTML = 'Editar Comentario';
+                var tituloEdit = document.createElement('input');
+                tituloEdit.className = 'tituloEdit';
+                var conteudoEdit = document.createElement('textarea');
+                conteudoEdit.className = 'conteudoEdit';
+                var confirmBtn = document.createElement('button');
+                confirmBtn.className = 'confirmBtn';
+                confirmBtn.innerHTML = 'confimar';
+                
+                 comentarios.appendChild(editarCmnt);
+                 editarCmnt.appendChild(editarLabel);
+                 editarCmnt.appendChild(tituloEdit);
+                 editarCmnt.appendChild(conteudoEdit);
+                 editarCmnt.appendChild(confirmBtn);
+
+                confirmBtn.addEventListener('click', function() { 
+
+                var titulo2 = tituloEdit.value;
+                var conteudo2 = conteudoEdit.value;
+
   
                 if (titulo2 !== null)
                     listaTab.titulo = titulo2;
-                if(conteudo2 !== null) {    
-                     
+                if(conteudo2 !== null) {                       
                     listaTab.conteudo = conteudo2;
                 }
-                salvarStorage("x", "x",listaTab.imagem);
+                salvarStorage('','','');
+               
                 salvarLista();
-                carregarLS();
                 
+                carregarLS();
+
+                editarCmnt.remove();
+
+                });
             });
                   
             var btnApagar = document.createElement("button");
@@ -258,7 +348,9 @@ barra.addEventListener('input', function(){
                 salvarLista();
                 carregarLS();
                 
-            });        
+            });
+        }
+
     });
 
 });
