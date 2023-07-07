@@ -1,4 +1,4 @@
-      html{
+html{
         height: 100%;
         width: 100%;
         margin: 0;
@@ -334,7 +334,39 @@
         background-color: maroon;
     }
 
-    
+    #comentarios .editarCmnt{
+      margin-top: 50px;
+            width: 40%;
+            height:370px;
+     
+            background-color: #8c120a;
+            float:right;
+            padding-left:10px;
+            padding-top:10px;
+    }
+    #comentarios .editartLabel{
+      text-align: center;
+
+    }
+    #comentarios .tituloEdit{
+      height: 20px;
+      width: 50%;
+    }
+    #comentarios .conteudoEdit{
+      margin-top:20px;
+           
+            height: 60%;
+            width: 90%;
+            resize: none;
+    }
+    #comentarios .confirmBtn{
+      width: 15%;
+      
+      margin-right: 10px;
+      float: right;
+      height: 30px;
+      
+    }
  
       
       body{
